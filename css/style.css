@@ -1,0 +1,315 @@
+:root{
+    --color-bubbles-blue: #40c9ff;
+    --color-bubbles-red: #ff2d75;
+
+    --color-target-blue: #40c9ff;
+    --color-target-red: #e81cff;
+
+    --color-f: #fff;
+    --color-b: black;
+    --color-btn-f: #F5B041;
+    --border-r: .2rem;
+    --top-generic: 10%;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+/* HEADER */
+
+header{
+    background: #727272;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 2rem;
+}
+
+header a{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--color-f)
+}
+
+header li{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--color-f);
+}
+
+.logo-header img{
+    width: 150px;
+}
+
+/* nav menu */
+
+.nav-menu ul{
+    display: flex;
+    align-items: center;
+}
+
+.nav-menu li{
+    margin-right: 1.5rem;
+    font-size: 1.3rem;
+}
+
+.nav-menu a:hover{
+    color: var(--color-bubbles-blue);
+}
+
+.nav-menu li:first-child{
+    background-color: var(--color-bubbles-blue);
+    border: 2px solid var(--color-bubbles-blue);
+    padding: 0.25rem;
+    border-radius: 0.2rem;
+}
+
+.nav-menu li:first-child:hover{
+    background: transparent;
+    border: 2px solid var(--color-bubbles-blue);
+}
+
+/* BODY */
+
+body{
+    zoom: 150%;
+    min-height: 100vh;
+    background-color: #0c192c;
+}
+
+h2{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    color: white;
+    padding: 2rem;
+}
+
+/* hero section */
+
+.wrap-hero-section{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--color-f);
+    padding: 20%;
+    text-align: justify;
+    width: 100%;
+    height: auto;
+}
+
+/* LOGOS */
+
+.wrap-logos-section{
+    padding-top: 10%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-brand{
+    width: 400px;
+    padding: 1rem 2rem;
+}
+
+/* LINEA */
+
+.wrap-glow{
+    padding: 10%;
+}
+
+.glow{
+    height: 10px;
+    border-color: transparent;
+    border-radius: 5px;
+    background: linear-gradient(-45deg, var(--color-target-red) 0%, var(--color-target-blue) 100% );
+}
+ 
+/* FONDO */
+
+.container-bubbles{
+    position: relative;
+    width: 100%;
+    height: 300vh;
+    overflow: hidden;
+
+}
+
+.bubbles{
+    position: relative;
+    display: flex;
+
+}
+
+.bubbles span{
+    position: relative;
+    width: 30px;
+    height: 30px;
+    background: var(--color-bubbles-blue);
+    margin: 0 4px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 10px #4fc3dc44, 0 0 50px var(--color-bubbles-blue), 
+    0 0 100px var(--color-bubbles-blue);
+    animation: animate 15s linear infinite;
+    animation-duration: calc(125s / var(--i));
+}
+
+.bubbles span:nth-child(even){
+    background: var(--color-bubbles-red);
+    box-shadow: 0 0 0 10px #ff2d7544, 0 0 50px var(--color-bubbles-red), 
+    0 0 100px var(--color-bubbles-red);
+}
+
+@keyframes animate{
+    0%{
+        transform: translateY(300vh) scale(0);
+    }
+    100%{
+        transform: translateY(-10vh) scale(1);
+    }
+}
+
+/* TARJETAS */
+
+.container{
+    display: flex;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    margin: 10px;
+    justify-content: center;
+}
+
+.card {
+    position: relative;
+    width: 190px;
+    height: 254px;
+    background-color: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    padding: 12px;
+    gap: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+  
+.card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    left: -5px;
+    margin: auto;
+    width: 200px;
+    height: 264px;
+    border-radius: 10px;
+    background: linear-gradient(-45deg, var(--color-target-red) 0%, var(--color-target-blue) 100% );
+    z-index: -10;
+    pointer-events: none;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+  
+.card::after {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(-45deg, var(--color-target-red) 0%, var(--color-target-blue) 100% );
+    transform: translate3d(0, 0, 0) scale(0.95);
+    filter: blur(20px);
+}
+  
+.heading {
+    font-size: 20px;
+    text-transform: capitalize;
+    font-weight: 700;
+}
+  
+.card p:not(.heading) {
+    font-size: 14px;
+}
+
+.card p:first-child {
+    color: var(--color-target-red);
+    font-weight: 600;
+}
+
+.card p:last-child {
+    color: var(--color-target-red);
+    font-weight: 600;
+}
+  
+.card:hover::after {
+    filter: blur(30px);
+}
+  
+.card:hover::before {
+    transform: rotate(-90deg) scaleX(1.34) scaleY(0.77);
+}
+  
+  /* BOTONES */
+
+  /* BOTON HERO SECTION */
+
+.cta-a {
+    position: relative;
+    width: 120px;
+    height: 40px;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    color: white;
+    flex-direction: column;
+    justify-content: center;
+    border: none;
+    padding: 12px;
+    gap: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+  
+.cta-a::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    left: -4px;
+    top: -1px;
+    margin: auto;
+    width: 128px;
+    height: 48px;
+    border-radius: 10px;
+    background: linear-gradient(-45deg, #e81cff 0%, #40c9ff 100% );
+    z-index: -10;
+    pointer-events: none;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+  
+.cta-a::after {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(-45deg, #fc00ff 0%, #00dbde 100% );
+    transform: translate3d(0, 0, 0) scale(0.95);
+    filter: blur(20px);
+}
+  
+.cta-a:hover::after {
+    filter: blur(30px);
+}
+  
+.cta-a:hover::before {
+    transform: rotate(-180deg);
+}
+
+.cta-a:active::before {
+    scale: 0.7;
+}
+  
+.cta-buttom{
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+}
